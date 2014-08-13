@@ -8,3 +8,6 @@ Router.map ->
   this.route 'postPage',
     path: '/posts/:_id'
     data: -> Posts.findOne @params._id
+  this.route 'postSubmit', path: '/submit'
+
+Router.onBeforeAction 'loading'
