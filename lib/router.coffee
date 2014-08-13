@@ -12,7 +12,9 @@ Router.map ->
 
 requireLogin = (pause) ->
   if not Meteor.user()
-    this.render 'accessDenied'
+    if Meteor.loggingIn()
+      @render @loadingTemplate
+    @render 'accessDenied'
     pause()
 
 Router.onBeforeAction 'loading'
